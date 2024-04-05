@@ -1,0 +1,41 @@
+//Escreva um programa em java que preencha um vetor com 20 números inteiros aleatórios entre 1 e 30 e depois verifique se o número 25 existe neste vetor.
+
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um vetor com 20 números inteiros
+        int[] vetor = new int[20];
+
+        // Preenchendo o vetor com números inteiros aleatórios entre 1 e 30
+        preencherVetor(vetor);
+
+        // Verificando se o número 25 existe no vetor
+        boolean encontrado = verificarNumero(vetor, 25);
+
+        // Imprimindo o resultado
+        if (encontrado) {
+            System.out.println("O número 25 foi encontrado no vetor.");
+        } else {
+            System.out.println("O número 25 não foi encontrado no vetor.");
+        }
+    }
+
+    // Método para preencher o vetor com números inteiros aleatórios entre 1 e 30
+    public static void preencherVetor(int[] vetor) {
+        Random rand = new Random();
+        for (int i = 0; i < vetor.length; i++) {
+            vetor[i] = rand.nextInt(30) + 1; // Gera números aleatórios entre 1 e 30
+        }
+    }
+
+    // Método para verificar se um número específico existe no vetor
+    public static boolean verificarNumero(int[] vetor, int numero) {
+        for (int i = 0; i < vetor.length; i++) {
+            if (vetor[i] == numero) {
+                return true; // O número foi encontrado
+            }
+        }
+        return false; // O número não foi encontrado
+    }
+}

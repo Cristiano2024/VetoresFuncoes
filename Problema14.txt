@@ -1,0 +1,26 @@
+// Em uma fábrica, é necessário calcular o tempo de produção de um produto com base no número de etapas necessárias. Escreva um programa que leia um número inteiro positivo correspondente ao número de etapas de produção e, em seguida, calcule e imprima o tempo total de produção. Considere que cada etapa de produção tem a duração de 30 minutos.
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um scanner para ler a entrada do usuário
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitando ao usuário que insira o número de etapas de produção
+        System.out.print("Digite o número de etapas de produção: ");
+        
+        // Lendo o número de etapas de produção
+        int numeroEtapas = scanner.nextInt();
+        
+        // Calculando o tempo total de produção (em minutos)
+        int tempoTotalProducao = numeroEtapas * 30;
+        
+        // Imprimindo o tempo total de produção
+        System.out.println("O tempo total de produção é de " + tempoTotalProducao + " minutos.");
+        
+        // Fechando o scanner
+        scanner.close();
+    }
+}
+

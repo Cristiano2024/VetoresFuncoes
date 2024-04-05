@@ -1,0 +1,68 @@
+// Escreva um programa em java que preencha um vetor com 30 números inteiros aleatórios entre 1 e 100. Peça ao usuário para digitar um valor, verifique se este valor existe no vetor e remova ele do vetor.
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Criando um vetor com 30 elementos
+        int[] vetor = new int[30];
+        
+        // Preenchendo o vetor com números aleatórios entre 1 e 100
+        preencherVetor(vetor);
+        
+        // Exibindo o vetor preenchido
+        System.out.println("Vetor inicial:");
+        exibirVetor(vetor);
+        
+        // Pedindo ao usuário para digitar um valor a ser removido
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite um valor a ser removido: ");
+        int valor = scanner.nextInt();
+        
+        // Verificando se o valor existe no vetor e removendo-o
+        boolean removido = false;
+        for (int i = 0; i < vetor.length; i++) {
+            if (vetor[i] == valor) {
+                removerElemento(vetor, i);
+                removido = true;
+                break;
+            }
+        }
+        
+        // Exibindo o vetor após a remoção (se ocorreu)
+        if (removido) {
+            System.out.println("Vetor após remoção:");
+            exibirVetor(vetor);
+        } else {
+            System.out.println("O valor digitado não existe no vetor.");
+        }
+        
+        scanner.close();
+    }
+    
+    // Método para preencher o vetor com números aleatórios entre 1 e 100
+    public static void preencherVetor(int[] vetor) {
+        Random random = new Random();
+        for (int i = 0; i < vetor.length; i++) {
+            vetor[i] = random.nextInt(100) + 1;
+        }
+    }
+    
+    // Método para exibir o vetor
+    public static void exibirVetor(int[] vetor) {
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.print(vetor[i] + " ");
+        }
+        System.out.println();
+    }
+    
+    // Método para remover um elemento do vetor
+    public static void removerElemento(int[] vetor, int indice) {
+        for (int i = indice; i < vetor.length - 1; i++) {
+            vetor[i] = vetor[i + 1];
+        }
+        vetor[vetor.length - 1] = 0; // Definindo o último elemento como 0
+    }
+}
+

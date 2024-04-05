@@ -1,0 +1,28 @@
+//Em um sistema de classificação de produtos, é necessário ordenar os produtos por preço. Escreva um programa que leia os preços de 10 produtos e, em seguida, ordene esses preços em ordem crescente e imprima o vetor ordenado.
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double[] precos = new double[10];
+
+        // Lendo os preços dos produtos
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Digite o preço do produto " + (i + 1) + ": ");
+            precos[i] = scanner.nextDouble();
+        }
+
+        // Ordenando os preços em ordem crescente
+        Arrays.sort(precos);
+
+        // Imprimindo os preços ordenados
+        System.out.println("Preços dos produtos em ordem crescente:");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Produto " + (i + 1) + ": R$" + precos[i]);
+        }
+    }
+}
